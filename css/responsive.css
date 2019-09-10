@@ -207,7 +207,7 @@ header nav .login_btn{
 
 header nav .login_btn:hover{
     background: #ffffff;
-    color: red;
+    color: #c31432;
 }
 
 
@@ -233,13 +233,12 @@ header nav .login_btn:hover{
 }
 
 .hero .caption{
-    width: 97%;
+    width: 97.3%;
     position: absolute;
     text-align: center;
     top: 50%;
     margin-top: -105px;
     z-index: 10;
-    box-shadow: 15px 0 10px #c31432;
     background: #c31432;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -481,6 +480,7 @@ header nav .login_btn:hover{
 /*  listings section  */
 .listings{
     padding: 100px 0;
+    background: #efeeda;
 }
 
 .listings ul.properties_list{
@@ -582,7 +582,7 @@ header nav .login_btn:hover{
 .listings .more_listing_btn{
     text-decoration: none;
     padding: 20px 40px;
-    border: 2px solid palevioletred;
+    border: 2px solid #c31432;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -605,7 +605,7 @@ header nav .login_btn:hover{
     font-size: 18px;
     font-weight: bold;
     text-decoration: underline;
-    border: 2px solid white;    
+    border: 2px solid #efeeda;    
 }
 
 
@@ -875,7 +875,7 @@ footer .copyrights a.ph_link{
 
     header nav ul li a,
     header nav .login_btn{
-        color: red;
+        color: #c31432;
     }
 
     header nav .login_btn:hover{

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HOME PAGE | FIND YOUR SWEET AND DREAM HOME</title>
+	<meta charset="utf-8">
+	<meta name="author" content="go4lab.com">
+	<meta name="description" content="Find You Sweet Home" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=Amaranth|Quicksand");
+
+		/* Coolors Exported Palette - coolors.co/efeeda-c5f4e0-c2eaba-a7c4a0-8f8389 */
+		/* HSL */
+		/* RGB */
+		html,
+		body {
+			background: #efeeda;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			font-family: "Amaranth", sans-serif;
+		}
+
+		h1 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		h2 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		h3 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		h4 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		h5 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		h6 {
+			font-family: "Quicksand", sans-serif;
+		}
+
+		.container {
+			padding: 25px;
+			background-color: #efeeda;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		.btn {
+			transition: all 0.3s ease-in-out;
+			font-family: "Quicksand", sans-serif;
+			background-color: #efeeda;
+			color: #4d4d4d;
+			border: 1px solid #4d4d4d;
+			padding: 12.5px;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: #4d4d4d;
+			color: #efeeda;
+		}
+
+		.btn:focus {
+			outline: none;
+		}
+
+		.btn:active {
+			transition: all 0.1s ease-in-out;
+			background-color: #efeeda;
+			color: #4d4d4d;
+		}
+
+		.image-viewer {
+			margin: 25px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		.image-viewer .main-image {
+			width: 300px;
+			height: 300px;
+			align-self: center;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.image-viewer .main-image img {
+			cursor: zoom-in;
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+		}
+
+		.image-viewer .secondary-images {
+			align-self: center;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.image-viewer .secondary-images .secondary-image {
+			padding: 6.25px;
+			height: 50px;
+		}
+
+		.image-viewer .secondary-images .secondary-image img {
+			cursor: pointer;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.section,
+		.pricing,
+		.detail {
+			padding: 12.5px;
+		}
+
+		.pricing {
+			width: 15%;
+			padding: 12.5px;
+		}
+
+		.pricing-price {
+			text-align: right;
+			margin: 12.5px 0;
+			font-size: 3em;
+		}
+
+		.pricing-btn {
+			width: 100%;
+		}
+
+		.detail {
+			width: 30%;
+		}
+
+		.detail .detail-short-description {
+			margin-top: 2em;
+		}
+
+		.detail .detail-long-description {
+			margin-top: 3em;
+			font-size: 0.8rem;
+		}
+
+		.lightbox {
+			transition: all 0.5s 0s ease-in-out;
+			position: fixed;
+			top: -100%;
+			bottom: 100%;
+			left: 0;
+			right: 0;
+			background: rgba(208, 205, 147, 0.9);
+			z-index: 501;
+			opacity: 0;
+		}
+
+		.lightbox img {
+			position: absolute;
+			margin: auto;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			max-width: 0%;
+			max-height: 0%;
+		}
+
+		.lightbox .lightbox-controls {
+			position: relative;
+			height: 100vh;
+		}
+
+		.lightbox .lightbox-controls .lightbox-control,
+		.lightbox .lightbox-controls .lightbox-controls-close,
+		.lightbox .lightbox-controls .lightbox-controls-previous,
+		.lightbox .lightbox-controls .lightbox-controls-next,
+		.lightbox.show .lightbox-controls .lightbox-controls-previous,
+		.lightbox.show .lightbox-controls .lightbox-controls-next {
+			height: 70px;
+			width: 70px;
+			position: absolute;
+			z-index: 502;
+			background: rgba(177, 172, 76, 0.9);
+			color: white;
+			font-size: 3em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.lightbox .lightbox-controls .lightbox-controls-close {
+			position: absolute;
+			top: 0%;
+			right: 0%;
+		}
+
+		.lightbox .lightbox-controls .lightbox-controls-previous {
+			position: absolute;
+			top: 50%;
+			left: -20%;
+			transition: all 0.5s 0s ease-in-out;
+		}
+
+		.lightbox .lightbox-controls .lightbox-controls-next {
+			position: absolute;
+			top: 50%;
+			right: -20%;
+			transition: all 0.5s 0s ease-in-out;
+		}
+
+		.lightbox.show {
+			transition: all 0.5s 0s ease-in-out;
+			top: 0%;
+			bottom: 0%;
+			opacity: 1;
+		}
+
+		.lightbox.show img {
+			transition: all 0.5s 0.5s ease-in-out;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.lightbox.show .lightbox-controls .lightbox-controls-previous {
+			position: absolute;
+			top: 50%;
+			left: 0%;
+			transition: all 0.5s 0.75s ease-in-out;
+		}
+
+		.lightbox.show .lightbox-controls .lightbox-controls-next {
+			position: absolute;
+			top: 50%;
+			right: 0%;
+			transition: all 0.5s 0.75s ease-in-out;
+		}
+	</style>
+
+
+
+</head>
+
+<body>
+
+	<section>
+		<header>
+			<div class="wrapper">
+				<a href="./index.html">
+					<img width="350px" src="img/logo/new_logo_header_purple.png" style="margin-top: 15px !important" alt=""
+						titl="" />
+				</a>
+				<a href="#" class="hamburger"></a>
+				<nav>
+					<ul>
+						<!--
+								<li><a href="#">Buy</a></li>
+								<li><a href="#">Rent</a></li>
+								<li><a href="#">Sell</a></li>
+								<li><a href="#">About</a></li>
+							-->
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<a href="#" class="login_btn">Login</a>
+				</nav>
+			</div>
+		</header><!--  end header section  -->
+	</section><!--  end hero section  -->
+
+
+	<section class="search">
+		<div class="wrapper">
+			<form action="#" method="post">
+				<input type="text" id="search" name="search" placeholder="Sample Product" autocomplete="off"
+					style="font-weight: bold;color: white;" />
+				<input type="submit" id="submit_search" name="submit_search" />
+			</form>
+			<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a>
+		</div>
+
+		<div class="advanced_search">
+			<div class="wrapper">
+				<span class="arrow"></span>
+				<form action="#" method="post">
+					<div class="search_fields">
+						<input type="text" class="float" id="check_in_date" name="check_in_date" placeholder="Check In Date"
+							autocomplete="off">
+
+						<hr class="field_sep float" />
+
+						<input type="text" class="float" id="check_out_date" name="check_out_date" placeholder="Check Out Date"
+							autocomplete="off">
+					</div>
+					<div class="search_fields">
+						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"
+							autocomplete="off">
+
+						<hr class="field_sep float" />
+
+						<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"
+							autocomplete="off">
+					</div>
+					<input type="text" id="keywords" name="keywords" placeholder="Keywords" autocomplete="off">
+					<input type="submit" id="submit_search" name="submit_search" />
+				</form>
+			</div>
+		</div><!--  end advanced search section  -->
+	</section><!--  end search section  -->
+
+	<section>
+		<div class="container">
+			<div class="image-viewer">
+				<div class="main-image">
+					<img src="https://i.ytimg.com/vi/lqgDyMszZw8/maxresdefault.jpg" />
+				</div>
+				<div class="secondary-images">
+					<div class="secondary-image">
+						<img src="https://i.ytimg.com/vi/lqgDyMszZw8/maxresdefault.jpg" />
+					</div>
+					<div class="secondary-image">
+						<img src="https://i.ytimg.com/vi/lqgDyMszZw8/maxresdefault.jpg" />
+					</div>
+					<div class="secondary-image">
+						<img src="https://i.ytimg.com/vi/lqgDyMszZw8/maxresdefault.jpg" />
+					</div>
+					<div class="secondary-image">
+						<img src="https://i.ytimg.com/vi/lqgDyMszZw8/maxresdefault.jpg" />
+					</div>
+				</div>
+			</div>
+			<div class="detail">
+				<h1 class="detail-name">Sample Product</h1>
+				<p class="detail-short-description">
+					Bacon ipsum dolor amet boudin strip steak ham, cupim fatback spare ribs short ribs doner ground round jowl
+					bresaola tail jerky ham hock. Corned beef doner shoulder sirloin. Sirloin beef ribs doner, pork loin beef
+					drumstick venison salami burgdoggen. Pork loin frankfurter beef ribs leberkas, flank spare ribs rump.
+				</p>
+				<div class="detail-long-description">
+					<p>Spicy jalapeno bacon ipsum dolor amet velit salami meatball enim jowl quis leberkas esse tempor boudin
+						venison
+						pariatur qui pork loin. Picanha consequat short loin in, swine sirloin tail venison ullamco adipisicing. Non
+						cupim meatloaf duis aliquip. Exercitation filet mignon lorem aliquip meatball pork loin jowl. Cow do strip
+						steak, adipisicing pig flank sausage kevin incididunt commodo. Chuck shoulder aliquip tenderloin meatball
+						turducken commodo rump.</p>
+
+					<p>Meatloaf turducken leberkas sirloin hamburger sunt mollit do ut. Swine meatball boudin venison pastrami eu
+						beef
+						ribs velit in laboris fatback dolore pariatur. Aliquip lorem pariatur corned beef, shankle landjaeger ham
+						leberkas jowl deserunt dolore aute do. Voluptate do ham hock shoulder. Quis ut burgdoggen, in minim shank
+						mollit
+						hamburger cillum elit ex do shoulder non. Bresaola kevin dolor qui. Chuck elit frankfurter, lorem velit
+						consectetur tenderloin in rump laborum consequat laboris bacon nulla.</p>
+
+					<p>Hamburger corned beef est turkey strip steak burgdoggen pastrami. Spare ribs swine occaecat pancetta beef
+						ribs,
+						t-bone ex voluptate flank pastrami ipsum non proident. Incididunt reprehenderit rump pastrami excepteur
+						enim.
+						Consectetur proident kevin ad, consequat mollit tri-tip ex enim aliquip bacon ribeye dolor minim. Shoulder
+						elit
+						brisket sint cow frankfurter sausage corned beef doner pork belly occaecat.</p>
+
+					<p>Esse veniam tongue eu eiusmod doner beef ham picanha aliquip fugiat hamburger. Dolor incididunt pork belly
+						strip steak aliquip nisi tri-tip. In spare ribs adipisicing pork loin shoulder pork belly sint officia
+						fugiat
+						quis strip steak. Exercitation eu aute frankfurter ut. Spare ribs enim filet mignon minim ut tri-tip est
+						jerky.
+						Pariatur in pork chop prosciutto boudin laborum.</p>
+
+					<p>Cillum excepteur chuck, pig swine sint ribeye elit ham pork belly shank ea. Kevin adipisicing hamburger,
+						alcatra brisket quis ball tip. Pork chop sirloin kielbasa, ham anim tail lorem aliquip ea cupidatat fatback
+						incididunt. Proident turkey minim occaecat t-bone pork loin tenderloin do irure cow pancetta ham shoulder
+						landjaeger eu. Enim turkey adipisicing kielbasa. Sausage deserunt et ea, nulla shankle ut kevin ground round
+						aute short loin jowl ut. Rump id venison cupidatat picanha.</p>
+				</div>
+			</div>
+			<div class="pricing">
+				<div class="pricing-price">$419.99</div>
+				<button class="btn pricing-btn">Add to Cart</button>
+			</div>
+			<div class="lightbox" id="lightbox">
+				<img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Close_Icon_Dark-512.png" />
+
+				<div class="lightbox-controls">
+					<div class="lightbox-controls-close">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</div>
+					<div class="lightbox-controls-previous">
+						<i class="fa fa-chevron-left" aria-hidden="true"></i>
+					</div>
+					<div class="lightbox-controls-next">
+						<i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<footer>
+		<div class="wrapper footer">
+			<ul>
+				<li class="links">
+					<ul>
+						<li><a href="#">SWEET HOME INC | CONTACT INFO</a></li>
+						<li><img src="./img/logo/new_logo_footer_white.png" alt=""></li>
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Support</a></li>
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Policy</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+						<li><a href="#">Appartements</a></li>
+						<li><a href="#">Houses</a></li>
+						<li><a href="#">Villas</a></li>
+						<li><a href="#">Mansions</a></li>
+						<li><a href="#">...</a></li>
+					</ul>
+				</li>
+
+				<li class="about">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, neque officia consequuntur quod, ut
+						repellat corporis ab atque, dolores explicabo consequatur laudantium nesciunt. Sunt ducimus odio recusandae
+						excepturi reiciendis fugit?
+					</p>
+					<ul>
+						<li><a href="http://twitter.com/josegomez-dev" class="twitter" target="_blank"></a></li>
+						<li><a href="http://twitter.com/josegomez-dev" class="twitter" target="_blank"></a></li>
+						<li><a href="http://twitter.com/josegomez-dev" class="twitter" target="_blank"></a></li>
+						<li><a href="http://twitter.com/josegomez-dev" class="twitter" target="_blank"></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="copyrights wrapper">
+			Copyright © 2019 <a href="http://go4lab.com" target="_blank" class="ph_link"
+				title="Download more free Templates">Go4Lab.com</a>. All Rights Reserved.
+		</div>
+	</footer><!--  end footer  -->
+
+
+	<script>
+		class ImageViewer {
+			constructor(selector) {
+				this.selector = selector;
+				$(this.secondaryImages).click(() => this.setMainImage(event));
+				$(this.mainImage).click(() => this.showLightbox(event));
+				$(this.lightboxClose).click(() => this.hideLightbox(event));
+			}
+
+			get secondaryImageSelector() {
+				return '.secondary-image';
+			}
+
+			get mainImageSelector() {
+				return '.main-image';
+			}
+
+			get lightboxImageSelector() {
+				return '.lightbox';
+			}
+
+			get lightboxClose() {
+				return '.lightbox-controls-close';
+			}
+
+			get secondaryImages() {
+				var secondaryImages = $(this.selector).find(this.secondaryImageSelector).find('img')
+				return secondaryImages;
+			}
+
+			get mainImage() {
+				var mainImage = $(this.selector).find(this.mainImageSelector);
+				return mainImage;
+			}
+
+			get lightboxImage() {
+				var lightboxImage = $(this.lightboxImageSelector);
+				return lightboxImage;
+			}
+
+			setLightboxImage(event) {
+				var src = this.getEventSrc(event);
+				this.setSrc(this.lightboxImage, src);
+			}
+
+			setMainImage(event) {
+				var src = this.getEventSrc(event);
+				this.setSrc(this.mainImage, src);
+			}
+
+			getSrc(node) {
+				var image = $(node).find('img');
+			}
+
+			setSrc(node, src) {
+				var image = $(node).find('img')[0];
+				image.src = src;
+			}
+
+			getEventSrc(event) {
+				return event.target.src;
+			}
+
+			showLightbox(event) {
+				this.setLightboxImage(event);
+				$(this.lightboxImageSelector).addClass('show');
+			}
+
+			hideLightbox() {
+				$(this.lightboxImageSelector).removeClass('show');
+			}
+		}
+
+		new ImageViewer('.image-viewer');
+	</script>
+
+</body>
+
+</html>
