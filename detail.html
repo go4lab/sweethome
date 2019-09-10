@@ -175,7 +175,11 @@
 			bottom: 100%;
 			left: 0;
 			right: 0;
-			background: rgba(208, 205, 147, 0.9);
+			background: #c31432;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #240b36, #c31432);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #240b36, #c31432);
 			z-index: 501;
 			opacity: 0;
 		}
@@ -206,7 +210,6 @@
 			width: 70px;
 			position: absolute;
 			z-index: 502;
-			background: rgba(177, 172, 76, 0.9);
 			color: white;
 			font-size: 3em;
 			display: flex;
