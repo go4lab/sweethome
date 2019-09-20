@@ -29,7 +29,8 @@ a:focus {
   border: 1px solid #eee;
   border-radius: 3px;
 }
-img {
+
+.portfolioContainer img {
   margin: 5px;
   max-width:100%;
 }
