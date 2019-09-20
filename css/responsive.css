@@ -353,6 +353,7 @@ header nav .login_btn:hover{
     top: 100px;
     left: 0;
     background: #240b36;
+    opacity: 0.9;
     border-top: 1px solid #240b36;
     border-bottom: 1px solid #240b36;
     z-index: 9999;
