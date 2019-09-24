@@ -8,6 +8,7 @@ a:focus {
 
 .portfolioFilter {
   padding: 15px 0;
+  background: #efeeda;
 }
 
 .portfolioFilter a {
@@ -28,11 +29,13 @@ a:focus {
 .portfolioContainer{
   border: 1px solid #eee;
   border-radius: 3px;
+  background: #efeeda;
 }
 
 .portfolioContainer img {
   margin: 5px;
   max-width:100%;
+  height: 151px;
 }
 
 .isotope-item {

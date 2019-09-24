@@ -1,5 +1,5 @@
 
-const fields = ["Houses", "Appartments", "Mansions", "Lands"];
+const fields = ["Cool Houses", "Appartments", "Mansions", "Rustic Houses"];
 var el = 0; //Indicate how element of fields is currently select for dynamic effect (value 0 to 3) 
 var flag = 0; //status: indicate the function in execution: 0 writer, 1 eraser
 var job = 0; //is current job finish?
@@ -8,7 +8,7 @@ setInterval(function () {
   var txt = fields[el];
   var i = 0;
   var l = txt.length - 1;
-  var speed = 65;
+  var speed = 200;
 
   if (job != 0) { return }
 

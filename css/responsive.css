@@ -482,7 +482,7 @@ header nav .login_btn:hover{
 /*  listings section  */
 .listings{
     padding: 100px 0;
-    background: #efeeda;
+    background: white;
 }
 
 .listings ul.properties_list{
@@ -758,7 +758,7 @@ footer .copyrights a.ph_link{
 
 @media (max-width: 1150px){
     .wrapper{
-        padding: 0 40px;
+        padding: 0 10px;
         max-width: 1020px;
     }
     .search .advanced_search .arrow{

@@ -39,7 +39,7 @@
 
 		.container {
 			padding: 25px;
-			background-color: #efeeda;
+			background-color: white;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;

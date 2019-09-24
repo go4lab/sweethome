@@ -2,7 +2,7 @@
 $(window).load(function () {
   var $container = $('.portfolioContainer');
   $container.isotope({
-    filter: '*',
+    filter: '.houses',
     animationOptions: {
       duration: 750,
       easing: 'linear',
